@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+    border: 1px solid;
+  }
+  
+
+td button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+td button:hover {
+    background-color: #c82333;
+}
+.edit-btn, .delete-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.edit-btn i, .delete-btn i {
+    color: #4a4a4a; /* Màu icon */
+    font-size: 16px; /* Kích thước icon */
+}
+
+.edit-btn:hover i, .delete-btn:hover i {
+    color: #007bff; /* Màu khi hover */
+}

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@mescius/spread-sheets": "^17.0.10",
+    "@mescius/spread-sheets-io": "^17.0.10",
+    "file-saver": "^2.0.5",
+    "jquery": "^3.7.1"
+  }
+}

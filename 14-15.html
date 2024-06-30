@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý VĐV lứa tuổi từ 14-15</title>
+    <link rel="stylesheet" href="./CSS/style_14-15.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="./node_modules/file-saver/src/FileSaver.js" type="text/javascript"></script>
+    <link href="./node_modules/@mescius/spread-sheets/styles/gc.spread.sheets.excel2013white.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./node_modules/@mescius/spread-sheets/dist/gc.spread.sheets.all.min.js"></script>
+    <script type="text/javascript" src="./node_modules/@mescius/spread-sheets-io/dist/gc.spread.sheets.io.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtzsuNbgbebfwz91N6nIp6svEU7CEfN-XnSQ&s" type="image/x-icon"/>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Quản lý VĐV lứa tuổi từ 14-15</h1>
+        <div class="form-container">
+            <input type="text" id="name" placeholder="Họ và tên">
+            <input type="number" id="yearOfBirth" placeholder="Năm sinh" onblur="validateAge()">
+            <div id="ageError" style="color: red;"></div>
+            <input type="text" id="club" placeholder="CLB">
+            
+            <h3>14 tuổi - 15 tuổi</h3>
+            <h1>Kata</h1>
+            <label><input type="checkbox" name="14-15_maleKata"> Kata Nam</label>
+            <label><input type="checkbox" name="14-15_femaleKata"> Kata Nữ</label>
+            <label><input type="checkbox" name="14-15_ddnamKata"> Kata Đồng đội Nam</label>
+            <label><input type="checkbox" name="14-15_ddnuKata"> Kata Đồng đội Nữ</label>
+            
+            <h1>Kumite Nam</h1>
+            <label><input type="radio" name="14-15_maleKumite" value="40">40 Kg</label>
+            <label><input type="radio" name="14-15_maleKumite" value="45">45 Kg</label>
+            <label><input type="radio" name="14-15_maleKumite" value="50">50 Kg</label>
+            <label><input type="radio" name="14-15_maleKumite" value="55">55 Kg</label>
+            <label><input type="radio" name="14-15_maleKumite" value="60">60 Kg</label>
+            <label><input type="radio" name="14-15_maleKumite" value=">60">>60 Kg</label>
+        
+            <h1>Kumite Nữ</h1>
+            <label><input type="radio" name="14-15_femaleKumite" value="40">40 Kg</label>
+            <label><input type="radio" name="14-15_femaleKumite" value="44">44 Kg</label>
+            <label><input type="radio" name="14-15_femaleKumite" value="48">48 Kg</label>
+            <label><input type="radio" name="14-15_femaleKumite" value="52">52 Kg</label>
+            <label><input type="radio" name="14-15_femaleKumite" value="56">56 Kg</label>
+            <label><input type="radio" name="14-15_femaleKumite" value=">56">>56 Kg</label>
+            
+            
+            <button type="button" onclick="addOrUpdateAthlete()">Thêm VĐV</button>
+            <button type="button" onclick="clearForm()">Clear Form</button>
+            <input type="hidden" id="editIndex">
+        </div>
+        
+        <h2>Danh sách VĐV</h2>
+        <input type="file" id="fileUpload" multiple accept=".xlsx, .xls" />
+        <button type="button" onclick="importExcel()">Import Excel</button>
+        <button type="button" onclick="exportExcel()">Export Excel</button>
+        <table id="athleteTable">
+            <thead>
+                <tr>
+                    <th rowspan="3">STT</th>
+                    <th rowspan="3">Họ và Tên</th>
+                    <th rowspan="3">Năm Sinh</th>
+                    <th rowspan="3">CLB</th>
+                    <th colspan="16">14 tuổi - 15 tuổi</th>
+                    <th rowspan="3">Hành động</th>
+                </tr>
+                <tr>
+                    <th colspan="4">Kata</th>
+                    <th colspan="6">Kumite Nam</th>
+                    <th colspan="6">Kumite Nữ</th>
+                </tr>
+                <tr>
+                    <th>Kata Nam</th>
+                    <th>Kata Nữ</th>
+                    <th>Kata Đồng đội Nam</th>
+                    <th>Kata Đồng đội Nữ</th>
+                    <th>40 Kg</th>
+                    <th>45 Kg</th>
+                    <th>50 Kg</th>
+                    <th>55 Kg</th>
+                    <th>60 Kg</th>
+                    <th>&gt;60 Kg</th>
+                    <th>40 Kg</th>
+                    <th>44 Kg</th>
+                    <th>48 Kg</th>
+                    <th>52 Kg</th>
+                    <th>56 Kg</th>
+                    <th>&gt;56 Kg</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Athletes will be added here dynamically -->
+            </tbody>
+        </table>
+        
+    </div>
+    <script src="./JS/script_14-15.js"></script>
+</body>
+</html>
